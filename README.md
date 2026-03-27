@@ -10,9 +10,8 @@ gcc main.c -o prog
 Foram testados tamanhos: 100, 1000, 5000, 10000.
 O valor buscado foi 7 (ímpar, portanto não existe).
 
-===========================
-RELATORIO / QUESTOES
-===========================
+
+## RELATORIO / QUESTOES
 
 Questao: Quantos testes serao feitos para descobrir que um valor nao existe no caso da versao A?
 
@@ -25,7 +24,6 @@ Exemplo:
 tam=100 → 100 comparações na busca sequencial
 tam=1000 → 1000 comparações
 tam=10000 → 10000 comparações
---------------------------------------------
 
 Questao: E no caso da B? Mudou alguma coisa?
 
