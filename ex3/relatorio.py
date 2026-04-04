@@ -20,7 +20,6 @@ invertido = df[df["Caso"] == "Invertido"].copy()
 # =========================
 # Gerar gráficos (PNG)
 # =========================
-
 def gerar_grafico(df_plot, titulo, arquivo_saida, col1, col2, label1, label2):
     plt.figure(figsize=(10, 6))
     plt.plot(df_plot["Tamanho"], df_plot[col1], marker="o", label=label1)
@@ -105,9 +104,9 @@ with PdfPages(PDF_FILE) as pdf:
     plt.text(0.5, 0.72, "Comparação: InsertSort vs QuickSort", fontsize=18, ha="center")
     plt.text(0.5, 0.62, "Testes com Vetores Ordenados e Invertidos", fontsize=14, ha="center")
 
-
-    plt.text(0.5, 0.50, "Aluno: João Vitor Nunes Lopes", fontsize=12, ha="center")
-    plt.text(0.5, 0.45, "Professor: Elgio Schlemer ", fontsize=12, ha="center")
+    plt.text(0.5, 0.55, "Aluno: João Vitor Nunes Lopes", fontsize=12, ha="center")
+    plt.text(0.5, 0.50, "Github: https://github.com/jvitorLS/trabs-complexidade-algoritmo", fontsize=12, ha="center")
+    plt.text(0.5, 0.45, "Professor: Elgio Schlemer", fontsize=12, ha="center")
     plt.text(0.5, 0.40, "Disciplina: Complexidade e Avaliação de Desempenho", fontsize=12, ha="center")
     plt.text(0.5, 0.35, "Linguagem: C", fontsize=12, ha="center")
 
@@ -134,6 +133,31 @@ with PdfPages(PDF_FILE) as pdf:
     tabela.set_fontsize(10)
     tabela.scale(1, 1.5)
 
+    pdf.savefig(fig)
+    plt.close()
+
+    # ---------- Página 3: Análise ----------
+    fig = plt.figure(figsize=(11, 8.5))
+    plt.axis("off")
+
+    texto = (
+        "Análise dos Resultados\n\n"
+        "Os testes mostram claramente o impacto da complexidade assintótica no tempo de execução.\n\n"
+        "1) InsertSort\n"
+        "- Quando os dados já estão ordenados, o InsertSort praticamente não realiza trocas, operando próximo do melhor caso O(n).\n"
+        "- Quando os dados estão invertidos, o algoritmo precisa deslocar muitos elementos a cada inserção, resultando no pior caso O(n²).\n"
+        "- Isso explica o crescimento muito rápido do tempo no cenário invertido.\n\n"
+        "2) QuickSort\n"
+        "- O QuickSort apresentou crescimento mais controlado, compatível com o caso médio O(n log n).\n"
+        "- Porém, dependendo da escolha do pivô, ele pode ter desempenho pior em vetores já ordenados, aproximando-se de O(n²).\n\n"
+        "3) Comparação Geral\n"
+        "- Para dados já ordenados, o InsertSort foi o mais rápido.\n"
+        "- Para dados invertidos e tamanhos maiores, o QuickSort foi significativamente mais eficiente.\n\n"
+        "Conclusão: InsertSort é adequado apenas para vetores pequenos ou quase ordenados, enquanto QuickSort é mais indicado\n"
+        "para grandes volumes de dados e casos gerais, mas pode degradar se o pivô não for escolhido adequadamente.\n"
+    )
+
+    fig.text(0.05, 0.95, texto, fontsize=14, va="top", ha="left", wrap=True)
     pdf.savefig(fig)
     plt.close()
 
