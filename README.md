@@ -1,7 +1,7 @@
 # Trabalho - Busca Sequencial e Busca Binária
 
 ## Como compilar
-gcc main.c -o prog
+gcc ex2/ex2.c -o ex2/prog
 
 ## Como executar
 ./prog
@@ -70,3 +70,30 @@ Resumo:
     - Ordenacao: O(n log n)
     - Busca: O(log n)
     - Total: O(n log n) (dominada pela ordenacao)
+
+--------------------------------------------
+
+# Trabalho - Insert sort e Quick sort
+
+## Instalar Requirements
+Na pasta raiz
+
+pip install -r requirements.txt
+
+## Como compilar código C
+Na pasta raiz
+
+gcc ex3.c -o ex3/prog
+
+## Como executar código C
+Na pasta raiz
+
+./ex3/prog
+
+## Como executar relatório.pdf
+Na pasta raiz
+
+python3 ex3/relatorio.py
+
+### Imagens de gráficos disponíveis no diretório ex3/graficos/
+### Relatório disponível no diretório ex3/relatorio.pdf
